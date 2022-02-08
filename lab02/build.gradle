@@ -1,15 +1,21 @@
-plugins {
-	id 'java'
-}
+apply plugin: 'java'
+apply plugin: 'application'
 
-repositories {
+repositories{
 	mavenCentral()
 }
 
-dependencies {
-	testImplementation('org.junit.jupiter:junit-jupiter:5.6.0')
+sourceSets{
+	main{
+		java{
+			srcDirs = ['src']
+		}
+	}
 }
 
-application {
-    mainClassName = 'SimpleTest.java'
+mainClassName = 'src.main.java.csci2020u.lab02.SimpleTest'
+
+tasks.register('simpletest'){
+	println 'testing'
+	println 'end of test'
 }
